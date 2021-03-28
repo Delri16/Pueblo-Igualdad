@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pueblo Igualdad</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="iconito" href="Imagenes/pelado.ico" />
+</head>
+<body id="pagina"></body>
+<div id="antesdejugar">
+<div id="inicio">
+  <input type="button" id="empezar" value="JUGAR">
+  <input type="button" id="comojugar" value="INSTRUCCIONES">
+</div>
+<div id="instrucciones"><img src="Imagenes/instrucciones.jpg" draggable="false" ; id="manual">
+  <input type="button" id="cerrar_instrucciones" value="Cerrar">
+</div>
+</div>    
+<div id="juego">
+  <div id="cronometro"></div>
+  <input type="button" id="resetear" value="Volver a intentar">
+      <div id="texto"></div>  
+      <div id="gris">
+        <input type="number" id="telefono">
+        <input type="button" id="llamada" value="llamar">
+        <input type="button" id="uno" value="1">
+        <input type="button" id="dos" value="2">
+        <input type="button" id="tres" value="3">
+        <input type="button" id="cuatro" value="4">
+        <input type="button" id="cinco" value="5">
+        <input type="button" id="seis" value="6">
+        <input type="button" id="siete" value="7">
+        <input type="button" id="ocho" value="8">
+        <input type="button" id="nueve" value="9">
+        <input type="button" id="diez" value="borrar">
+        </div>
+      <div id="fondo"> <img src="Imagenes/pueblopaz.png"draggable="false" ; id="pueblo"></div>
+        <div id="lola"> <img src="Imagenes/mlola.gif" draggable="false" ; id="lola1" /></div>
+        <div id="bar"></div>
+        <div id="casa"></div>
+        <div id="oficina"></div>
+        <div id="textooficina"></div>
+        <div id="tienda"></div>
+        <div id="empleada"><img src="Imagenes/vacio.png"draggable="false" ; id="empleadas"></div>
+          <!--AUDIOS-->
+        <div id="audios">
+          <audio id="inbar" autoplay loop>
+            <source src="Sonidos/argentina.mp3" type="audio/mp3" /></audio>
+          <audio id="inbar2" autoplay loop>
+            <source src="Sonidos/barsito.mp3" type="audio/mp3" /></audio>
+          <audio id="incasa" autoplay loop>
+            <source src="Sonidos/casita.mp3" type="audio/mp3" /></audio>
+          <audio id="intienda" autoplay loop>
+            <source src="Sonidos/negocio.mp3" type="audio/mp3" /></audio>
+          <audio id="inoficina" autoplay loop>
+            <source src="Sonidos/oficinita.mp3" type="audio/mp3" /></audio>
+          <audio id="inmenu" autoplay loop>
+            <source src="Sonidos/titlescreen.mp3" type="audio/mp3" /></audio>
+          <audio id="inpueblo" autoplay loop>
+            <source src="Sonidos/pueblito.mp3" type="audio/mp3" /></audio>
+          <audio id="pasos1" autoplay>
+            <source src="Sonidos/pasito.WAV" type="audio/WAV" /></audio>
+          <audio id="pasos2" autoplay>
+            <source src="Sonidos/pasito2.WAV" type="audio/WAV" /></audio>
+          <audio id="portazo" autoplay>
+            <source src="Sonidos/puertita.WAV" type="audio/WAV" /></audio>
+          <audio id="logro" autoplay>
+            <source src="Sonidos/good_job.mp3" type="audio/mp3" /></audio>    
+          <audio id="start" autoplay>
+            <source src="Sonidos/empezar.mp3" type="audio/mp3" /></audio>
+            <audio id="axel" autoplay>
+              <source src="Sonidos/NoesNo.m4a" type="audio/mp3" /></audio>
+              <audio id="tecla" autoplay>
+                <source src="Sonidos/tecla.mp3" type="audio/mp3" /></audio>
+          </div>
+          <input type="button" id=instru value="instrucciones">
+
+
+
+<script>
+//DE ACA ------------------------------------------------------------------------------
+var lolax= 440;
+var lolay= 290;
+var bar= 0;
+var oficina= 0;
+var casa = 0;
+var tienda= 0;
+var adentro=0;
+var direccion=1;
+var futbolera=0;
+var pelado1=0;
+var pelado2=0;
+var pelado3=0;
+var jefe=0;
+var secretaria=0;
+var empleada= 0;
+var esposa= 0;
+var empleado= 0;
+var sueldo=0;
+var aguinaldo=0;
+var abogada=0;
+var ambas=0;
+var solucion1=0;
+var solucion2=0;
+var solucion3=0;
+var solucion4=0;
+var minutos= 5;
+var segundos= 30;
+var lento=0;
+var instruir=0;
+var perder=0;
+var ganar=0;
+var escuchar=0;
+var jugando=0;
+var telofono1=0;
+var telefono2=0;
+var telefono3=0;
+var primero = 0;
+var segundo = 0;
+var tercero = 0;
+var telefonon = 0;
+//HASTA ACA TODAS LAS VARIABLES--------------------------------------------------------
+//DE ACA-------------------------------------------------------------------------------
+function moverderecha() {
+       lolax = lolax+10;
+       document.getElementById("lola").style.left= lolax + "px"
+       direccion=2;
+       document.getElementById("pasos1").play()
+          document.getElementById("pasos1").volume = 0.3
+      }
+function moverizquierda() {
+        lolax = lolax-10;
+       document.getElementById("lola").style.left= lolax + "px"
+      direccion=3
+      document.getElementById("pasos2").play()
+          document.getElementById("pasos2").volume = 0.3
+      }
+function moverarriba() {
+        lolay = lolay-10;
+       document.getElementById("lola").style.top= lolay + "px"
+       direccion=4
+       document.getElementById("pasos1").play()
+          document.getElementById("pasos1").volume = 0.3
+      }
+function moverabajo() {
+        lolay = lolay+10;
+       document.getElementById("lola").style.top= lolay + "px";
+       direccion=1;
+       document.getElementById("pasos2").play()
+          document.getElementById("pasos2").volume = 0.3
+        }
+      
+
+ function tecla_presionada (datos) {
+    if(datos.key == "ArrowUp") moverarriba();
+    if(datos.key == "ArrowDown") moverabajo();
+    if(datos.key == "ArrowRight") moverderecha();
+    if(datos.key == "ArrowLeft") moverizquierda();
+    if(datos.key == "W") moverarriba();
+    if(datos.key == "S") moverabajo();
+    if(datos.key == "D") moverderecha();
+    if(datos.key == "A") moverizquierda();
+    if(datos.key == "w") moverarriba();
+    if(datos.key == "s") moverabajo();
+    if(datos.key == "d") moverderecha();
+    if(datos.key == "a") moverizquierda();
+    if(lolax>860){
+          lolax=860
+      }
+      if(lolax<0){
+          lolax=0
+      }
+      if(lolay>550){
+          lolay=550
+      }
+      if(lolay<0){
+          lolay=0
+      }
+      //entrar al bar
+     if(perder==0){ 
+      if(adentro==0 && lolax>175 && lolax<325 && lolay>35 && lolay<205 ){
+        document.getElementById("bar").style.width="0px";
+      document.getElementById("tienda").style.width="0px";
+      document.getElementById("casa").style.width="0px";
+      document.getElementById("oficina").style.width="0px";
+      document.getElementById("pueblo").src="Imagenes/bar.png";
+      lolax=405;
+      lolay=450;
+      document.getElementById("lola").style.left= lolax + "px";
+      document.getElementById("lola").style.top= lolay + "px";
+      bar=1;
+      adentro=1;
+      document.getElementById("lola1").src="Imagenes/lolaa.png"
+      if(bar==1){
+          document.getElementById("empleadas").src="Imagenes/empleada.png"
+          document.getElementById("empleada").style.width="80px"
+          document.getElementById("inbar").play()
+          document.getElementById("inbar").volume = 0.5
+          document.getElementById("portazo").play()
+          document.getElementById("portazo").volume = 0.6
+          document.getElementById("inpueblo").volume = 0.0
+          document.getElementById("inbar2").play()
+          document.getElementById("inbar2").volume = 0.4
+        }
+    }
+    //entrar a la oficina
+    if(adentro==0 && lolax>490 && lolax<720 && lolay>70 && lolay<240 ){
+        document.getElementById("bar").style.width="0px";
+      document.getElementById("tienda").style.width="0px";
+      document.getElementById("casa").style.width="0px";
+      document.getElementById("oficina").style.width="0px";
+      document.getElementById("pueblo").src="Imagenes/oficina.png";
+      lolax=405;
+      lolay=450;
+      document.getElementById("lola").style.left= lolax + "px";
+      document.getElementById("lola").style.top= lolay + "px";
+      oficina=1;
+      adentro=1;
+      document.getElementById("lola1").src="Imagenes/lolaa.png"
+      document.getElementById("inoficina").play()
+      document.getElementById("inoficina").volume = 0.7
+      document.getElementById("portazo").play()
+          document.getElementById("portazo").volume = 0.6
+          document.getElementById("inoficina").play()
+          document.getElementById("inoficina").volume = 0.7
+          document.getElementById("inpueblo").volume = 0.0
+    }
+    //entrar a la casa
+    if(adentro==0 && lolax>135 && lolax<335 && lolay>230 && lolay<400 ){
+        document.getElementById("bar").style.width="0px";
+      document.getElementById("tienda").style.width="0px";
+      document.getElementById("casa").style.width="0px";
+      document.getElementById("oficina").style.width="0px";
+      document.getElementById("pueblo").src="Imagenes/casa.png";
+      lolax=200;
+      lolay=450;
+      document.getElementById("lola").style.left= lolax + "px";
+      document.getElementById("lola").style.top= lolay + "px";
+      casa=1;
+      adentro=1;
+      document.getElementById("lola1").src="Imagenes/lolaa.png"
+      document.getElementById("portazo").play()
+          document.getElementById("portazo").volume = 0.6
+          document.getElementById("incasa").play()
+          document.getElementById("incasa").volume = 0.7
+          document.getElementById("inpueblo").volume = 0.0
+    }
+    //entrar a la tienda
+    if(adentro==0 && lolax>525 && lolax<695 && lolay>230 && lolay<400 ){
+        document.getElementById("bar").style.width="0px";
+      document.getElementById("tienda").style.width="0px";
+      document.getElementById("casa").style.width="0px";
+      document.getElementById("oficina").style.width="0px";
+      document.getElementById("pueblo").src="Imagenes/tienda.png";
+      lolax=450;
+      lolay=450;
+      document.getElementById("lola").style.left= lolax + "px";
+      document.getElementById("lola").style.top= lolay + "px";
+      tienda=1;
+      adentro=1;
+      document.getElementById("lola1").src="Imagenes/lolaa.png"
+      document.getElementById("portazo").play()
+          document.getElementById("portazo").volume = 0.6
+          document.getElementById("intienda").play()
+          document.getElementById("intienda").volume = 0.7
+          document.getElementById("inpueblo").volume = 0.0
+    }
+  }
+    //salir de los lugares
+    if(adentro==1 && lolay>470 ){
+        lolax=440;
+      lolay=290;
+      document.getElementById("pueblo").src="Imagenes/pueblopaz.png";
+      document.getElementById("lola").style.top= lolay + "px";
+      document.getElementById("lola").style.left= lolax + "px";
+      document.getElementById("bar").style.width="110px";
+      document.getElementById("tienda").style.width="130px";
+      document.getElementById("casa").style.width="160px";
+      document.getElementById("oficina").style.width="190px";
+      document.getElementById("texto").innerHTML="";
+      document.getElementById("texto").style.width="0px";
+      document.getElementById("texto").style.height="0px";
+      document.getElementById("texto").style.border="0px";
+      document.getElementById("lola1").src="Imagenes/mlola.png";
+      adentro=0;
+      bar=0;
+      tienda=0;
+      casa=0;
+      oficina=0;
+      document.getElementById("empleadas").src="Imagenes/vacio.png";
+      document.getElementById("texto").style.backgroundColor="White"
+      document.getElementById("gris").style.width="0px"
+        document.getElementById("gris").style.height="0px"
+        document.getElementById("gris").style.border="0px"
+        document.getElementById("telefono").style.display="none"
+        document.getElementById("llamada").style.display="none"
+        document.getElementById("llamada").style.display="none"
+    document.getElementById("uno").style.display="none"
+    document.getElementById("dos").style.display="none"
+    document.getElementById("tres").style.display="none"
+    document.getElementById("cuatro").style.display="none"
+    document.getElementById("cinco").style.display="none"
+    document.getElementById("seis").style.display="none"
+    document.getElementById("siete").style.display="none"
+    document.getElementById("ocho").style.display="none"
+    document.getElementById("nueve").style.display="none"
+    document.getElementById("diez").style.display="none"
+    document.getElementById("gris").style.display="none"
+    document.getElementById("telefono").style.display="none"
+        document.getElementById("portazo").play()
+          document.getElementById("portazo").volume = 0.6
+          document.getElementById("inbar").volume = 0.0
+          document.getElementById("inoficina").volume = 0.0
+          document.getElementById("incasa").volume = 0.0
+          document.getElementById("intienda").volume = 0.0
+          document.getElementById("inpueblo").volume = 0.7
+          document.getElementById("inbar2").volume = 0.0
+    }
+    //direccion
+    if(adentro==1 && direccion==4){
+           document.getElementById("lola1").src="Imagenes/lolaa.gif"}
+        if(adentro==0 && direccion==4){
+            document.getElementById("lola1").src="Imagenes/mlolaa.gif"}
+            if(adentro==1 && direccion==1){
+           document.getElementById("lola1").src="Imagenes/lola.gif"}
+        if(adentro==0 && direccion==1){
+            document.getElementById("lola1").src="Imagenes/mlola.gif"}
+            if(adentro==1 && direccion==2){
+           document.getElementById("lola1").src="Imagenes/lolad.gif"}
+        if(adentro==0 && direccion==2){
+            document.getElementById("lola1").src="Imagenes/mlolad.gif"}
+            if(adentro==1 && direccion==3){
+           document.getElementById("lola1").src="Imagenes/lolai.gif"}
+        if(adentro==0 && direccion==3){
+            document.getElementById("lola1").src="Imagenes/mlolai.gif"}       
+  }
+
+
+
+ 
+  
+      function misiones(){
+        //Bar
+        if(bar==1){
+
+        if(lolax>100 && lolax<385 && lolay>350){
+          document.getElementById("texto").innerHTML="Los hombres de este bar no me dejan hablar de fútbol porque soy mujer"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="390px"
+          document.getElementById("texto").style.left="50px"
+          document.getElementById("texto").style.border="5px solid black"
+          document.getElementById("empleadas").src="Imagenes/empleada1.png"
+        }
+        if(futbolera==1 && lolax>100 && lolax<385 && lolay>350){
+          document.getElementById("texto").innerHTML="Gracias"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="390px"
+          document.getElementById("texto").style.left="50px"
+          document.getElementById("texto").style.border="5px solid black"
+          document.getElementById("empleadas").src="Imagenes/empleada.png"
+          solucion1=1
+          document.getElementById("logro").play()
+          document.getElementById("logro").volume = 0.7
+        }
+        if(pelado1<=1 && lolax>470 && lolax<700 && lolay>350){
+          document.getElementById("texto").innerHTML="¿Por qué hay una mujer acá? Estamos viendo el partido"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="390px"
+          document.getElementById("texto").style.left="450px"
+          document.getElementById("texto").style.border="5px solid black"
+          pelado1= pelado1 + 1
+        }
+        if(pelado1>=2 && lolax>470 && lolax<700 && lolay>350){
+          document.getElementById("texto").innerHTML="Tenés razón, tiene el mismo derecho que yo a mirarlo"
+          document.getElementById("texto").style.width="300px";
+          document.getElementById("texto").style.height="50px";
+          document.getElementById("texto").style.top="390px";
+          document.getElementById("texto").style.left="450px";
+          document.getElementById("texto").style.border="5px solid black";
+    }
+        if(lolax>600 && lolax<700 && lolay<380 && lolay>300){
+          document.getElementById("texto").innerHTML="Maradona sos eterno, te vamos a extrañar"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="390px"
+          document.getElementById("texto").style.left="450px"
+          document.getElementById("texto").style.border="5px solid black"
+        }
+        if(lolax>600 && lolax<800 && lolay<380 && lolay>300){
+          document.getElementById("texto").innerHTML="Maradona sos eterno, te vamos a extrañar"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="300px"
+          document.getElementById("texto").style.left="550px"
+          document.getElementById("texto").style.border="5px solid black"
+        }
+        if(lolax>500 && lolax<700 && lolay<300 && lolay>200){
+          document.getElementById("texto").innerHTML="Messi pecho frío, maradona era mejor"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="190px"
+          document.getElementById("texto").style.left="450px"
+          document.getElementById("texto").style.border="5px solid black"
+        }
+        if(pelado2<=1 && lolax>550 && lolax<800 && lolay<150 && lolay>50){
+          document.getElementById("texto").innerHTML="Me molesta que las mujeres opinen de futbol, decile que se vaya"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="50px"
+          document.getElementById("texto").style.left="550px"
+          document.getElementById("texto").style.border="5px solid black"
+          pelado2=pelado2+1
+        }
+        if(pelado2>=2 && lolax>550 && lolax<800 && lolay<150 && lolay>50){
+          document.getElementById("texto").innerHTML="Tenés razón, la chica sabe de fútbol, que se quede."
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="50px"
+          document.getElementById("texto").style.left="550px"
+          document.getElementById("texto").style.border="5px solid black"
+          
+        }
+        if(lolax>300 && lolax<500 && lolay<180 && lolay>50){
+          document.getElementById("texto").innerHTML="GOOOOOOOOOOOOOOOOOOOOOL"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="50px"
+          document.getElementById("texto").style.left="300px"
+          document.getElementById("texto").style.border="5px solid black"
+          
+        }
+        if(jefe<1 && lolax<220 && lolay<180 && lolay>50){
+          document.getElementById("texto").innerHTML=". . ."
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="50px"
+          document.getElementById("texto").style.left="50px"
+          document.getElementById("texto").style.border="5px solid black"
+        }
+        if(jefe>=1 && lolax<220 && lolay<180 && lolay>50){
+          document.getElementById("texto").innerHTML="Si ya se que mi jefe me busca. Pero yo soy abogada, no quiero estar ahi donde solo me usan para llevar café por ser mujer"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="100px"
+          document.getElementById("texto").style.top="50px"
+          document.getElementById("texto").style.left="50px"
+          document.getElementById("texto").style.border="5px solid black"
+          secretaria=1
+        }
+        if(jefe>=1 && lolax<220 && lolay<180 && lolay>50 && abogada==1){
+          document.getElementById("texto").innerHTML="Muchas gracias. La tienda de mi jefe también tiene problemas de machismo, espero que puedas o hayas podido ayudar"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="100px"
+          document.getElementById("texto").style.top="50px"
+          document.getElementById("texto").style.left="50px"
+          document.getElementById("texto").style.border="5px solid black"
+          secretaria=1
+          solucion3=1
+          document.getElementById("logro").play()
+          document.getElementById("logro").volume = 0.7
+        }
+        if(pelado3<=1 && lolax>130 && lolax<350 && lolay<300 && lolay>200){
+          document.getElementById("texto").innerHTML="Es una lástima que los hombres no acepten lo que sabe esta muchacha de fútbol"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="190px"
+          document.getElementById("texto").style.left="200px"
+          document.getElementById("texto").style.border="5px solid black"
+          pelado3=pelado3+1
+        }
+        if(pelado3>=2 && pelado2>=2 && pelado1>=2 && lolax>130 && lolax<350 && lolay<300 && lolay>200){
+          document.getElementById("texto").innerHTML="Gracias por hablar con ellos, ¿sabías que podes llamar al" + " 144 " +"para denunciar violencia de género?"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="75px"
+          document.getElementById("texto").style.top="190px"
+          document.getElementById("texto").style.left="200px"
+          document.getElementById("texto").style.border="5px solid black"
+      
+          
+        }
+        if(pelado2>=2 && pelado1>=2){
+          futbolera=1
+        }
+        }
+        //casa
+        
+    if(casa==1){
+      if(esposa == 0 && lolax>100 && lolax<300 && lolay<270){
+          document.getElementById("texto").innerHTML="Mi marido me trata mal, no se qué hacer"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="100px"
+          document.getElementById("texto").style.left="150px"
+          document.getElementById("texto").style.border="5px solid black"
+          document.getElementById("texto").style.backgroundColor="White"
+        }
+        if(lolax>360 && lolay<320 && lolay>220){
+          if (telefonon == 0){
+        document.getElementById("gris").style.display="block"
+        document.getElementById("gris").style.width="300px"
+        document.getElementById("gris").style.height="400px"
+        document.getElementById("gris").style.backgroundColor="Grey"
+        document.getElementById("gris").style.border="5px solid black"
+        document.getElementById("gris").style.left="590px"
+        document.getElementById("telefono").style.display="inline"
+        document.getElementById("llamada").style.display="inline"
+        document.getElementById("uno").style.display="block"
+        document.getElementById("dos").style.display="block"
+        document.getElementById("tres").style.display="block"
+        document.getElementById("cuatro").style.display="block"
+        document.getElementById("cinco").style.display="block"
+        document.getElementById("seis").style.display="block"
+        document.getElementById("siete").style.display="block"
+        document.getElementById("ocho").style.display="block"
+        document.getElementById("nueve").style.display="block"
+        document.getElementById("diez").style.display="block"
+          }
+        }
+       
+   
+     
+        
+        if(esposa==1 && lolax>100 && lolax<300 && lolay<270){
+          document.getElementById("texto").innerHTML="Muchas gracias, nunca había tenido el valor de hacerlo yo misma"
+          document.getElementById("texto").style.width="300px"
+          document.getElementById("texto").style.height="50px"
+          document.getElementById("texto").style.top="100px"
+          document.getElementById("texto").style.left="150px"
+          document.getElementById("texto").style.border="5px solid black"
+          document.getElementById("texto").style.backgroundColor="White"
+          solucion2=1
+          document.getElementById("logro").play()
+          document.getElementById("logro").volume = 0.7
+        }
+      }
+       //oficina
+  if (oficina==1){
+       if(lolay<300 && jefe<=1 && secretaria==0 && empleada==0){
+    document.getElementById("texto").innerHTML="SUSANAAAA NECESITO UN CAFEEEE"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="50px"
+    document.getElementById("texto").style.left="150px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+    jefe=jefe+1
+    
+   }
+   if(lolay<300 && jefe>=2 && secretaria==0 && empleada==0){
+    document.getElementById("texto").innerHTML="Necesito un café y mi empleada no aparece. Lo único que sabe hacer no lo hace"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="50px"
+    document.getElementById("texto").style.left="150px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+   }
+   if(lolay<300 && jefe>=2 && secretaria==1 && abogada==1 && empleada==1){
+    document.getElementById("texto").innerHTML="Es verdad, además trabajan igual, ninguno es mejor que el otro, voy a igualar sus sueldos"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="50px"
+    document.getElementById("texto").style.left="150px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+
+   }
+   if(lolay<300 && jefe>=2 && secretaria==1 && abogada==0 && empleada==1){
+    document.getElementById("texto").innerHTML="Es verdad, además trabajan igual, ninguno es mejor que el otro, voy a igualar sus sueldos"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="50px"
+    document.getElementById("texto").style.left="150px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+
+   }
+   if(lolay<300 && jefe>=2 && secretaria==1 && empleada==0 && sueldo==0){
+    document.getElementById("texto").innerHTML="Nunca lo había pensado. Le voy a dar la oportunidad de mostrarme que una mujer puede trabajar"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="50px"
+    document.getElementById("texto").style.left="150px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+    abogada=1
+
+   }
+   if(lolay<300 && secretaria==0 && empleada==1){
+    document.getElementById("texto").innerHTML="No me molestes con los sueldos ahora, que aparezca mi secretaria"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="50px"
+    document.getElementById("texto").style.left="150px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+    empleada=0
+    sueldo=1
+   }
+   if(lolay<300 && jefe>=2 && secretaria==1 && empleada==1 && sueldo==1 && aguinaldo<=1){
+    document.getElementById("texto").innerHTML="Nunca lo había pensado. Le voy a dar la oportunidad de mostrarme que una mujer puede trabajar"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="50px"
+    document.getElementById("texto").style.left="150px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+    aguinaldo= aguinaldo+1
+    abogada=1
+
+   }
+   if(lolay<300 && jefe>=2 && secretaria==1 && empleada==0 && sueldo==1 && aguinaldo<=1){
+    document.getElementById("texto").innerHTML="Nunca lo había pensado. Le voy a dar la oportunidad de mostrarme que una mujer puede trabajar"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="50px"
+    document.getElementById("texto").style.left="150px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+    aguinaldo= aguinaldo+1
+    abogada=1
+
+   }
+   if(lolay<300 && jefe>=2 && secretaria==1 && abogada==1 && aguinaldo>=2){
+    document.getElementById("texto").innerHTML="Ahora que volvio susana si. Es verdad, además trabajan igual, ninguno es mejor que el otro, voy a igualar sus sueldos"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="50px"
+    document.getElementById("texto").style.left="150px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+    empleado=1
+
+   }
+
+  }
+  //tienda
+  if(tienda==1){
+    if( empleado == 0 && lolay<400){
+    document.getElementById("texto").innerHTML="Mi jefe, no me paga lo mismo que a mi compañero, solamente porque el es hombre ¿podrías hablar con mi jefe? Está en su oficina"
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="75px"
+    document.getElementById("texto").style.left="25px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+    empleada=1
+    sueldo=1
+   }
+   if(jefe>=2 && empleado == 1 && lolay<400){
+    document.getElementById("texto").innerHTML="Muchas gracias, mi jefe siempre tiene problemas por ser tan machista."
+    document.getElementById("texto").style.width="300px"
+    document.getElementById("texto").style.height="75px"
+    document.getElementById("texto").style.top="75px"
+    document.getElementById("texto").style.left="25px"
+    document.getElementById("texto").style.border="5px solid black"
+    document.getElementById("texto").style.backgroundColor="White"
+    solucion4=1
+    document.getElementById("logro").play()
+          document.getElementById("logro").volume = 0.7
+   }
+  }
+  //GANAR
+  if(solucion1==1 && solucion2==1 && solucion3==1 && solucion4==1){
+    document.getElementById("axel").play()
+          document.getElementById("axel").volume = 1
+          document.getAnimations("inpueblo").volume = 0.0 
+          document.getAnimations("incasa").volume = 0.0
+          document.getAnimations("inoficina").volume = 0.0 
+          document.getAnimations("intienda").volume = 0.0 
+          document.getAnimations("inbar").volume = 0.0
+          document.getAnimations("inbar2").volume = 0.0 
+    document.getElementById("pueblo").src="Imagenes/ganaste.png";
+    document.getElementById("texto").style.display="none";
+    document.getElementById("empleada").style.display="none";
+    adentro=0
+    document.getElementById("casa").style.display="none";
+    document.getElementById("tienda").style.display="none";
+    document.getElementById("oficina").style.display="none";
+    document.getElementById("bar").style.display="none";
+    document.getElementById("cronometro").innerHTML="0:00"
+    lolax= 440;
+    lolay= 290;
+    document.getElementById("lola").style.top= lolay + "px";
+    document.getElementById("lola").style.left= lolax + "px";
+    perder=1
+    document.getElementById("instru").style.display="none"
+   
+    if(adentro==1 && direccion==4){
+           document.getElementById("lola1").src="Imagenes/lolaa.gif"}
+        if(adentro==0 && direccion==4){
+            document.getElementById("lola1").src="Imagenes/mlolaa.gif"}
+            if(adentro==1 && direccion==1){
+           document.getElementById("lola1").src="Imagenes/lola.gif"}
+        if(adentro==0 && direccion==1){
+            document.getElementById("lola1").src="Imagenes/mlola.gif"}
+            if(adentro==1 && direccion==2){
+           document.getElementById("lola1").src="Imagenes/lolad.gif"}
+        if(adentro==0 && direccion==2){
+            document.getElementById("lola1").src="Imagenes/mlolad.gif"}
+            if(adentro==1 && direccion==3){
+           document.getElementById("lola1").src="Imagenes/lolai.gif"}
+        if(adentro==0 && direccion==3){
+            document.getElementById("lola1").src="Imagenes/mlolai.gif"}
+            ganar=1
+            document.getElementById("resetear").style.display="block"
+      
+  }
+ 
+  }
+  
+//FUNCIONES DE ENTRAR A LUGARES
+  //ACA TERMINAN LAS FUNCIONES DE ENTRAR A LUGARES
+  function abririnstrucciones(){
+    document.getElementById("instrucciones").style.display="block"
+    document.getElementById("manual").style.src="Imagenes/instrucciones.jpg"
+    document.getElementById("empezar").style.display="none"
+    document.getElementById("comojugar").style.display="none"
+    document.getElementById("antesdejugar").style.display="block"
+    document.getElementById("juego").style.display="none"
+    instruir = instruir +1
+  }
+  function cerrarinstrucciones(){
+    document.getElementById("instrucciones").style.display="none"
+    document.getElementById("empezar").style.display="block"
+    document.getElementById("comojugar").style.display="block"
+    if(instruir>=2){
+      document.getElementById("instru").style.display="none"
+    }
+  }
+  function menu(){
+    document.getElementById("inmenu").play()
+    document.getElementById("inmenu").volume = 0.7
+    document.getElementById("juego").style.display="none"
+    document.getElementById("axel").volume = 0.0
+
+
+  }
+
+  function ajugar(){
+    document.getElementById("instrucciones").style.display="none"
+    document.getElementById("empezar").style.display="none"
+    document.getElementById("comojugar").style.display="none"
+    document.getElementById("antesdejugar").style.display="none"
+    document.getElementById("juego").style.display="block"
+    perder=0
+    document.getElementById("inpueblo").play()
+    document.getElementById("inpueblo").volume = 0.7
+    document.getElementById("start").play()
+    document.getElementById("start").volume = 0.7
+    document.getElementById("inmenu").pause()
+    jugando = 1
+    
+  }
+  function tiempo(){
+   if(ganar==0){
+    segundos = segundos - 1;
+              if (segundos==0){
+                minutos =minutos-1;
+                segundos=59
+              }
+              if(lento<=1){
+                if(minutos >= 0) {
+                    setTimeout(tiempo, 1000)
+                }
+              }
+              if(lento==2){
+                if(minutos >= 0) {
+                    setTimeout(tiempo, 2000);
+                }
+              }
+              if(lento==3){
+                if(minutos >= 0) {
+                    setTimeout(tiempo, 4000);
+                }
+              }
+              if(lento==4){
+                if(minutos >= 0) {
+                    setTimeout(tiempo, 8000);
+                }
+              }
+            }
+                document.getElementById("cronometro").innerHTML =minutos+ ":" + segundos;
+            
+                //perder
+                if(minutos<=-1){
+    document.getElementById("pueblo").src="Imagenes/perdiste.png";
+    document.getElementById("texto").style.display="none";
+    document.getElementById("empleada").style.display="none";
+    adentro=0
+    document.getElementById("casa").style.display="none";
+    document.getElementById("tienda").style.display="none";
+    document.getElementById("oficina").style.display="none";
+    document.getElementById("bar").style.display="none";
+    document.getElementById("cronometro").innerHTML="0:00"
+    lolax= 440;
+    lolay= 290;
+    document.getElementById("lola").style.top= lolay + "px";
+    document.getElementById("lola").style.left= lolax + "px";
+    perder=1
+    document.getElementById("instru").style.display="none"
+    document.getElementById("resetear").style.display="block"
+    if(adentro==1 && direccion==4){
+           document.getElementById("lola1").src="Imagenes/lolaa.gif"}
+        if(adentro==0 && direccion==4){
+            document.getElementById("lola1").src="Imagenes/mlolaa.gif"}
+            if(adentro==1 && direccion==1){
+           document.getElementById("lola1").src="Imagenes/lola.gif"}
+        if(adentro==0 && direccion==1){
+            document.getElementById("lola1").src="Imagenes/mlola.gif"}
+            if(adentro==1 && direccion==2){
+           document.getElementById("lola1").src="Imagenes/lolad.gif"}
+        if(adentro==0 && direccion==2){
+            document.getElementById("lola1").src="Imagenes/mlolad.gif"}
+            if(adentro==1 && direccion==3){
+           document.getElementById("lola1").src="Imagenes/lolai.gif"}
+        if(adentro==0 && direccion==3){
+            document.getElementById("lola1").src="Imagenes/mlolai.gif"}       
+  }
+              
+  }
+  function messi(){
+    tiempo();
+    ajugar();
+  }
+  function volverajugar(){
+    document.getElementById("axel").pause()
+    document.getElementById("axel").volume = 0.0
+    location.reload();
+  }
+
+  function mutear(){
+document.getElementById("start").volume = 0.0
+document.getElementById("inbar").volume = 0.0
+document.getElementById("inbar2").volume = 0.0
+document.getElementById("incasa").volume = 0.0
+document.getElementById("intienda").volume = 0.0
+document.getElementById("inoficina").volume = 0.0
+document.getElementById("inmenu").volume = 0.0
+document.getElementById("inpueblo").volume = 0.0
+document.getElementById("axel").volume = 0.0
+document.getElementById("pasos1").volume = 0.0
+document.getElementById("pasos2").volume = 0.0
+document.getElementById("portazo").volume = 0.0
+document.getElementById("logro").volume = 0.0
+escuchar = 0 
+
+  }
+  function musicadelprincipio(){ 
+    if (jugando==0){
+      document.getElementById("inmenu").play()
+      document.getElementById("inmenu").volume = 0.7
+    }
+  }
+  //FUNCIONES DE DISCAR EL TELEFONO
+  function borrar (){
+    telefono3=0
+    primero=0
+    telefono1=0
+    telefono2=0
+    document.getElementById("telefono").value=" "
+    document.getElementById("tecla").play()
+  }
+function discar1(){
+  document.getElementById("telefono").value=document.getElementById("telefono").value +"1"
+  document.getElementById("tecla").play()
+}
+function discar2(){
+  document.getElementById("telefono").value= document.getElementById("telefono").value+"2"
+  document.getElementById("tecla").play()
+}
+function discar3(){
+  document.getElementById("telefono").value=document.getElementById("telefono").value +"3"
+  document.getElementById("tecla").play()
+}
+function discar4(){
+  document.getElementById("telefono").value= document.getElementById("telefono").value+"4"
+  document.getElementById("tecla").play()
+}
+function discar5(){
+  document.getElementById("telefono").value=document.getElementById("telefono").value +"5"
+  document.getElementById("tecla").play()
+}
+function discar6(){
+  document.getElementById("telefono").value= document.getElementById("telefono").value+"6"
+  document.getElementById("tecla").play()
+}
+function discar7(){
+  document.getElementById("telefono").value=document.getElementById("telefono").value +"7"
+  document.getElementById("tecla").play()
+}
+function discar8(){
+  document.getElementById("telefono").value= document.getElementById("telefono").value+"8"
+  document.getElementById("tecla").play()
+}
+function discar9(){
+  document.getElementById("telefono").value= document.getElementById("telefono").value+"9"
+  document.getElementById("tecla").play()
+}
+function llamar(){
+  document.getElementById("tecla").play()
+  if(lolax>360 && lolay<320 && lolay>220){
+ denuncia= document.getElementById("telefono").value
+        if(denuncia=="144"){
+        document.getElementById("gris").style.width="0px"
+        document.getElementById("gris").style.height="0px"
+        document.getElementById("gris").style.border="0px"
+        document.getElementById("gris").style.display="none"
+        document.getElementById("telefono").style.display="none"
+        document.getElementById("llamada").style.display="none"
+        esposa=1
+        telefonon=1
+        }
+  }
+}
+function desaparecer(){
+  if(esposa==1){
+    document.getElementById("llamada").style.display="none"
+    document.getElementById("uno").style.display="none"
+    document.getElementById("dos").style.display="none"
+    document.getElementById("tres").style.display="none"
+    document.getElementById("cuatro").style.display="none"
+    document.getElementById("cinco").style.display="none"
+    document.getElementById("seis").style.display="none"
+    document.getElementById("siete").style.display="none"
+    document.getElementById("ocho").style.display="none"
+    document.getElementById("nueve").style.display="none"
+    document.getElementById("diez").style.display="none"
+    document.getElementById("gris").style.display="none"
+    document.getElementById("telefono").style.display="none"
+  }
+}
+
+
+
+ //HASTA ACA TODAS LAS FUNCIONES ----------------------------------------------------------- 
+
+ document.getElementById("pagina").onkeydown = tecla_presionada;
+ document.getElementById("pagina").onclick = misiones;
+ window.onload= menu;
+ document.getElementById("comojugar").onclick = abririnstrucciones;
+ document.getElementById("cerrar_instrucciones").onclick = cerrarinstrucciones;
+ document.getElementById("empezar").onclick= messi;
+ document.getElementById("instru").onclick = abririnstrucciones;
+ if(perder==1){
+   document.getElementById("pueblo").onclick=ajugar;
+ }
+ document.getElementById("resetear").onclick= volverajugar;
+ onmousemove=musicadelprincipio;
+ //cosas pa probar
+ document.getElementById("diez").onclick = borrar
+ document.getElementById("uno").onclick = discar1
+ document.getElementById("dos").onclick = discar2
+ document.getElementById("tres").onclick = discar3
+ document.getElementById("cuatro").onclick = discar4
+ document.getElementById("cinco").onclick = discar5
+ document.getElementById("seis").onclick = discar6
+ document.getElementById("siete").onclick = discar7
+ document.getElementById("ocho").onclick = discar8
+ document.getElementById("nueve").onclick = discar9
+document.getElementById("llamada").onclick= llamar
+document.getElementById("gris").onclick=desaparecer
+
+</script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+@font-face{
+    font-family: pixelart;
+    src: url(Fuentes/Minecraft.ttf)
+}
+#texto{
+    font-family: pixelart;
+
+}
+
+#juego{
+    width: 900px;
+    height: 600px;
+    border: 1px solid black;
+    position: relative;
+    margin: auto;
+     
+}
+#fondo{
+    width: 900px;
+    height: 600px;
+}
+#lola{
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    left: 440px;
+    top: 290px;
+}
+#bar{
+    width: 110px;
+    height: 150px;
+    position: absolute;
+    border: 1px black;
+    left: 215px;
+    top: 95px;
+  
+
+}
+#casa{
+    width: 160px;
+    height: 120px;
+    position: absolute;
+    border: 1px black;
+    left: 175px;
+    top: 280px;
+  
+
+}
+#oficina{
+    width: 190px;
+    height: 120px;
+    position: absolute;
+    border: 1px black;
+    left: 530px;
+    top: 120px;
+    
+
+}
+#tienda{
+    width: 130px;
+    height: 120px;
+    position: absolute;
+    border: 1px black;
+    left: 565px;
+    top: 280px;
+   
+}
+#baradentro{
+    background-image: url("Imagenes/bar.png");
+    position: absolute;
+}
+#oficinaadentro{
+    background-image: url("Imagenes/oficina.png");
+    position: absolute;
+}
+#textooficina{
+    position: absolute;
+    left: 124px;
+    top: 95px;
+}
+#empleada{
+    position: absolute;
+    left: 280px;
+    top: 430px;
+    width: 0px;
+    height: 0px;
+}
+#texto{
+    position: absolute;
+    background-color: white;
+    border: 0px solid black;
+    width: 0px;
+    height: 0px;
+}
+#llamada{
+    position: absolute;
+    display: none;
+    background-color: green;
+    height: 100px;
+    width: 100px;
+    font-family: pixelart;
+    font-size: 25px;
+    top: 105px;
+}
+#telefono{
+    position: absolute;
+    display: none;
+height: 100px;
+width: 280px;
+font-size: 50px;
+background-color: lightblue;
+font-family: pixelart;
+}
+#uno{
+    position: absolute;
+    background-color:lightgray;
+    height: 40px;
+    width: 50px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 110px;
+    top: 105px;
+    display: none;
+}
+#dos{
+    position: absolute;
+    background-color: lightgray;
+    height: 40px;
+    width: 50px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 170px;
+    top: 105px;
+    display: none;
+}
+#tres{
+    position: absolute;
+    background-color: lightgray;
+    height: 40px;
+    width: 50px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 230px;
+    top: 105px;
+    display: none;
+}
+#cuatro{
+    position: absolute;
+    background-color: lightgray;
+    height: 40px;
+    width: 50px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 110px;
+    top: 155px;
+    display: none;
+}
+#cinco{
+    position: absolute;
+    background-color: lightgray;
+    height: 40px;
+    width: 50px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 170px;
+    top: 155px;
+    display: none;
+}
+#seis{
+    position: absolute;
+    background-color: lightgray;
+    height: 40px;
+    width: 50px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 230px;
+    top: 155px;
+    display: none;
+}
+#siete{
+    position: absolute;
+    background-color:lightgray;
+    height: 40px;
+    width: 50px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 110px;
+    top: 205px;
+    display: none;
+}
+#ocho{
+    position: absolute;
+    background-color: lightgray;
+    height: 40px;
+    width: 50px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 170px;
+    top: 205px;
+    display: none;
+}
+#nueve{
+    position: absolute;
+    background-color: lightgray;
+    height: 40px;
+    width: 50px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 230px;
+    top: 205px;
+    display: none;
+}
+#diez{
+    position: absolute;
+    background-color: lightgray;
+    height: 40px;
+    width: 70px;
+    font-family: pixelart;
+    font-size: 20px;
+    left: 160px;
+    top: 255px;
+    display: none;
+}
+#atras{
+    position: absolute;
+    background-color: orange;
+    height: 40px;
+    width: 75px;
+    font-family: pixelart;
+    font-size: 20px;
+    right: 0px;
+    bottom: 0px;
+    display: none;
+}
+
+
+
+#gris{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    
+}
+#antesdejugar{
+    width: 900px;
+    height: 600px;
+    border: 1px solid black;
+    position: relative;
+    margin: auto;
+    background-image: url(Imagenes/background.jpg);
+}
+#instrucciones{
+    display: none;
+}
+#empezar{
+    position: absolute;
+    left: 155px;
+    top: 285px;
+    width: 590px;
+    height: 140px;
+    font-family: pixelart;
+    font-size: 100px;
+    background-color: lightgreen;
+}
+#comojugar{
+    position: absolute;
+    left: 255px;
+    top: 470px;
+    width: 400px;
+    height: 100px;
+    font-family: pixelart;
+    font-size: 50px;
+    background-color: sandybrown;
+}
+#cerrar_instrucciones{
+    position: absolute;
+    left: 590px;
+    top: 480px;
+    width: 163px;
+    height: 70px;
+    font-family: pixelart;
+    font-size: 40px;
+    background-color: lightgreen;
+}
+#instru{ 
+    width: 120px;
+    height: 25px;
+    font-family: pixelart;
+    font-size: 15px;
+    background-color: sandybrown;
+}
+#cronometro{
+    left: 800px;
+    top: 20px;
+    position: absolute;
+    width: 38px;
+    height: 16px;
+    font-family: pixelart;
+    font-size: 15px;
+    background-color:rgba(255, 255, 255, 0.3);
+}
+#resetear{
+    position: absolute;
+    left: 255px;
+    top: 370px;
+    width: 400px;
+    height: 100px;
+    font-family: pixelart;
+    font-size: 15px;
+    background-color: lightgreen;
+    display: none;
+}
+#instru{
+    display: none;
+}
+#mute{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url("Imagenes/sinsonido.jpg");
+}
+#pagina{
+    background-image: url("Imagenes/background.jpg");
+}
+#antesdejugar{
+    background-image: url("Imagenes/background.png");
+}
